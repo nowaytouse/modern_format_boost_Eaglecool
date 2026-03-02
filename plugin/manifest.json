@@ -1,0 +1,16 @@
+{
+    "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "version": "1.0.0",
+    "platform": "all",
+    "arch": "all",
+    "name": "Modern Format Boost",
+    "logo": "/logo.png",
+    "keywords": ["hevc", "compress", "video", "image", "optimize"],
+    "devTools": false,
+    "main": {
+        "frame": false,
+        "url": "index.html",
+        "width": 720,
+        "height": 600
+    }
+}
