@@ -10,7 +10,7 @@
     "main": {
         "frame": false,
         "url": "index.html",
-        "width": 720,
-        "height": 600
+        "width": 800,
+        "height": 700
     }
 }

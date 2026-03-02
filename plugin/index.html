@@ -14,15 +14,15 @@
 body{font-family:-apple-system,'SF Pro Text','Segoe UI',sans-serif;font-size:14px;background:var(--bg);color:var(--text);height:100vh;display:flex;flex-direction:column;overflow:hidden;-webkit-font-smoothing:antialiased}
 
 /* Titlebar - Windows layout */
-.titlebar{height:36px;background:#161616;border-bottom:1px solid var(--border);display:flex;align-items:center;-webkit-app-region:drag;user-select:none;flex-shrink:0}
-.tb-left{display:flex;align-items:center;gap:8px;padding-left:12px;flex:1;-webkit-app-region:drag}
-.tb-logo{font-size:14px}
-.tb-title{font-size:12px;color:var(--dim);font-weight:500}
-.tb-center{display:flex;gap:6px;-webkit-app-region:no-drag;margin-right:4px}
-.tb-act{background:var(--bg3);border:1px solid var(--border);color:var(--dim);padding:2px 8px;border-radius:4px;cursor:pointer;font-size:10px;font-weight:500;line-height:1}
+.titlebar{height:40px;background:#161616;border-bottom:1px solid var(--border);display:flex;align-items:center;-webkit-app-region:drag;user-select:none;flex-shrink:0}
+.tb-left{display:flex;align-items:center;gap:8px;padding-left:14px;flex:1;-webkit-app-region:drag}
+.tb-logo{font-size:15px}
+.tb-title{font-size:13px;color:var(--dim);font-weight:500}
+.tb-center{display:flex;gap:6px;-webkit-app-region:no-drag;margin-right:6px}
+.tb-act{background:var(--bg3);border:1px solid var(--border);color:var(--dim);padding:4px 12px;border-radius:4px;cursor:pointer;font-size:12px;font-weight:500;line-height:1}
 .tb-act:hover{color:var(--text);background:var(--bg4)}
 .tb-win-btns{display:flex;-webkit-app-region:no-drag;flex-shrink:0}
-.tb-win-btn{width:46px;height:36px;border:none;background:transparent;color:var(--dim);font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s}
+.tb-win-btn{width:50px;height:40px;border:none;background:transparent;color:var(--dim);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s}
 .tb-win-btn:hover{background:var(--bg4);color:var(--text)}
 .tb-win-btn.close:hover{background:#c42b1c;color:#fff}
 
@@ -55,12 +55,12 @@ body{font-family:-apple-system,'SF Pro Text','Segoe UI',sans-serif;font-size:14p
 .switch input:checked+.sl::before{transform:translateX(14px)}
 
 /* Log */
-#log{flex:1;background:#111;border:1px solid var(--border);border-radius:6px;padding:8px 10px;font-family:'SF Mono','Menlo','Consolas',monospace;font-size:11px;color:#aaa;resize:none;min-height:80px;line-height:1.6}
+#log{flex:1;background:#111;border:1px solid var(--border);border-radius:6px;padding:8px 10px;font-family:'SF Mono','Menlo','Consolas',monospace;font-size:11px;color:#aaa;resize:none;min-height:140px;line-height:1.6}
 #log::-webkit-scrollbar{width:5px}
 #log::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:3px}
 
 /* Status summary */
-#status-summary{background:var(--bg3);border-radius:6px;padding:10px 12px;font-size:12px;line-height:1.7;color:var(--dim);max-height:90px;overflow-y:auto;display:none;font-family:'SF Mono','Menlo','Consolas',monospace}
+#status-summary{background:var(--bg3);border-radius:6px;padding:10px 12px;font-size:12px;line-height:1.7;color:var(--dim);max-height:130px;overflow-y:auto;display:none;font-family:'SF Mono','Menlo','Consolas',monospace}
 #status-summary .s-ok{color:var(--green);font-weight:600}
 #status-summary .s-skip{color:var(--yellow)}
 #status-summary .s-fail{color:var(--red);font-weight:600}
