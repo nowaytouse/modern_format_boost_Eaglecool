@@ -232,7 +232,44 @@ $('btn-run').addEventListener('click', async () => {
     $('btn-run').textContent = t('start');
 });
 
+// ── Binary update checker ──────────────────────────────────────
+async function checkBinaryUpdates() {
+    const updateScript = path.join(PLUGIN_ROOT, 'update_binaries.sh');
+    const lastUpdateFile = path.join(PLUGIN_ROOT, 'bin', '.last_update');
+
+    try {
+        // Check if update script exists
+        if (!fs.existsSync(updateScript)) return;
+
+        // Check last update time (update weekly)
+        let shouldUpdate = false;
+        if (fs.existsSync(lastUpdateFile)) {
+            const lastUpdate = parseInt(fs.readFileSync(lastUpdateFile, 'utf8'));
+            const weekInSeconds = 7 * 24 * 60 * 60;
+            const now = Math.floor(Date.now() / 1000);
+            shouldUpdate = (now - lastUpdate) > weekInSeconds;
+        } else {
+            shouldUpdate = true;
+        }
+
+        if (shouldUpdate) {
+            log('🔄 Checking for binary updates...');
+            const proc = spawn('bash', [updateScript], { env: spawnEnv });
+            proc.on('close', code => {
+                if (code === 0) {
+                    log('✅ Binaries updated successfully');
+                } else {
+                    log('⚠️ Binary update check completed with warnings');
+                }
+            });
+        }
+    } catch (e) {
+        // Silent fail - don't interrupt user workflow
+    }
+}
+
 // ── Init ───────────────────────────────────────────────────────
 load();
 applyLang();
 refreshSelected();
+checkBinaryUpdates();

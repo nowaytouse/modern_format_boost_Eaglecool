@@ -1,0 +1,11 @@
+# Binary Source Configuration
+# This file specifies where to fetch binary dependencies
+
+# Git repository URL (HTTPS or SSH)
+REPO_URL="https://github.com/nowaytouse/modern-format-boost.git"
+
+# Branch to fetch from
+BRANCH="main"
+
+# Optional: Specific commit hash (leave empty for latest)
+# COMMIT=""
