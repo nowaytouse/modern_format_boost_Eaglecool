@@ -50,12 +50,20 @@ const I = {
 };
 const t = k => I[lang][k] || k;
 
+function updateSelInfo() {
+    const n = selectedItems.length;
+    $('sel-info').innerHTML = n
+        ? `<span class="count">${n}</span><span class="label">${t('selected')}</span>`
+        : `<span class="label">${t('noSelection')}</span>`;
+}
+
 function applyLang() {
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const k = el.dataset.i18n;
         if (I[lang][k]) el.textContent = I[lang][k];
     });
     $('btn-lang').textContent = lang === 'zh' ? 'EN' : '中文';
+    updateSelInfo();
     updateHelpPanel();
 }
 
@@ -95,14 +103,10 @@ function save() { FLAGS.forEach(id => localStorage.setItem(id, $(id).checked)); 
 async function refreshSelected() {
     try {
         selectedItems = await eagle.item.getSelected();
-        const n = selectedItems.length;
-        $('sel-info').innerHTML = n
-            ? `<span class="count">${n}</span><span class="label">${t('selected')}</span>`
-            : `<span class="label">${t('noSelection')}</span>`;
     } catch {
-        $('sel-info').innerHTML = `<span class="label">${t('noSelection')}</span>`;
         selectedItems = [];
     }
+    updateSelInfo();
 }
 $('btn-refresh').addEventListener('click', refreshSelected);
 
